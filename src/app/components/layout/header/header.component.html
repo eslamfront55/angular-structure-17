@@ -1,14 +1,10 @@
 <nav class="navbar navbar-expand-lg position-fixed w-100 d-xl-block d-none"
-  [ngClass]="page!='home'&&page!='places'&&page!='trips'&&page!='coming-soon'&&page!='stores'&&page!='events'&&page!='restaurants'&&page!='restaurant-details'&&page!='stories'&&page!='searchResult'?'headerBg':''"
-  (clickOutside)="collapsedMenu == true ? collapsedMenu = false :''"
-  [class.dark-nav]="page=='stores'||page=='events'||page=='restaurant-details'||page=='stories'||page=='searchResult'">
+  [ngClass]="{'headerBg': shouldApplyHeaderBg()}" (clickOutside)="collapsedMenu == true ? collapsedMenu = false :''"
+  [ngClass]="{'dark-nav':shouldDisplayDarkLogo()}">
   <div class="container px-0">
     <a class="navbar-brand mx-3">
-      @if(page=='stores'||page=='events'||page=='restaurant-details'||page=='searchResult'){
-      <img src="assets/images/logo/dark-logo.svg" alt="logo" class="logo h-100">
-      }@else {
-      <img src="assets/images/logo/logo.svg" alt="logo" class="logo h-100">
-      }
+      <img [src]="shouldDisplayDarkLogo() ? 'assets/images/logo/dark-logo.svg' : 'assets/images/logo/logo.svg'"
+        alt="logo" class="logo h-100">
     </a>
     <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
       data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -20,7 +16,7 @@
       </div>
     </button>
     <div class="collapse navbar-collapse m-auto" id="navbarSupportedContent" [class.show]="collapsedMenu">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-4">
+      <ul class="navbar-nav m-auto mb-2 mb-lg-0 gap-4">
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/home']" routerLinkActive="active2"
             (click)="collapsedMenu = false">{{'nav.home'|translate}}</a>
@@ -73,7 +69,7 @@
           </svg>
         </button>
         }
-        <!-- <app-language-selector></app-language-selector> -->
+        <app-language-selector></app-language-selector>
       </div>
     </div>
   </div>
@@ -90,7 +86,7 @@
         <span class="line line2"></span>
         <span class="line line3"></span>
       </a>
-      <!-- <app-language-selector></app-language-selector> -->
+      <app-language-selector></app-language-selector>
     </div>
   </div>
 </nav>
@@ -317,4 +313,4 @@
   </ul>
 </nav>
 
-<!-- <p-confirmDialog [style]="{ width: '450px' }"></p-confirmDialog> -->
+<p-confirmDialog [style]="{ width: '450px' }"></p-confirmDialog>

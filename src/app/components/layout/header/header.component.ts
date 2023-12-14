@@ -1,17 +1,18 @@
-import { CommonModule, NgOptimizedImage, isPlatformBrowser } from '@angular/common';
 import { ChangeDetectorRef, Component, HostListener, Inject, Input, PLATFORM_ID } from '@angular/core';
-import { ConfirmationService } from 'primeng/api';
-import { Subscription } from 'rxjs';
+import { LanguageSelectorComponent } from './components/language-selector/language-selector.component';
+import { CommonModule, NgOptimizedImage, isPlatformBrowser } from '@angular/common';
 import { DialogService, DynamicDialogModule } from 'primeng/dynamicdialog';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { Router, RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
+import { ConfirmationService } from 'primeng/api';
 import { SidebarModule } from 'primeng/sidebar';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [DynamicDialogModule, ConfirmDialogModule, RouterModule, TranslateModule, SidebarModule, CommonModule, NgOptimizedImage],
+  imports: [DynamicDialogModule, ConfirmDialogModule, RouterModule, TranslateModule, SidebarModule, CommonModule, NgOptimizedImage, LanguageSelectorComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
   providers: [DialogService, ConfirmationService]
@@ -66,18 +67,6 @@ export class HeaderComponent {
   openPlace(): void {
     this.collapse = false;
   }
-  // @HostListener("window:scroll", ["$event"])
-  // handleKeyDown() {
-  //   let element: any = document.querySelector(".navbar") as HTMLElement;
-  //   if (window.pageYOffset > 30) {
-  //     element.classList.add("headerScroll");
-  //     this.scrollDown = true;
-  //   } else {
-  //     element.classList.remove("headerScroll");
-  //     this.scrollDown = false;
-  //   }
-  // }
-
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
     private confirmationService: ConfirmationService,
@@ -110,7 +99,23 @@ export class HeaderComponent {
     //   }
     // }
   }
-
+  shouldApplyHeaderBg(): boolean {
+    const excludedPages = [
+      'home',
+      'places',
+      'trips',
+      'coming-soon',
+      'stores',
+      'events',
+      'restaurant-details',
+      'stories',
+      'searchResult'
+    ];
+    return !excludedPages.includes(this.page);
+  }
+  shouldDisplayDarkLogo(): boolean {
+    return ['stores', 'events', 'restaurant-details', 'searchResult', 'stories'].includes(this.page);
+  }
   login(): void {
     // const ref = this?.dialogService?.open(LoginComponent, {
     //   width: '80%',

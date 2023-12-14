@@ -1,14 +1,11 @@
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { ApplicationConfig, importProvidersFrom } from '@angular/core';
-import { Router, provideRouter } from '@angular/router';
-
-import { routes } from './app.routes';
-import { provideClientHydration } from '@angular/platform-browser';
 import { HttpClient, HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-export function createTranslateLoader(http: HttpClient) {
-  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
-}
+import { ApplicationConfig, importProvidersFrom } from '@angular/core';
+import { provideClientHydration } from '@angular/platform-browser';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { Router, provideRouter } from '@angular/router';
+import { routes } from './app.routes';
+
 export const appConfig: ApplicationConfig = {
   providers: [provideRouter(routes), provideClientHydration(),
   provideHttpClient(withFetch()),
@@ -24,8 +21,12 @@ export const appConfig: ApplicationConfig = {
             useFactory: createTranslateLoader,
             deps: [HttpClient, Router]
           },
-          // defaultLanguage: 'en'
+          defaultLanguage: 'en'
         })
     )
   ]
 };
+
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
