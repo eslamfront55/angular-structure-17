@@ -9,10 +9,11 @@ import { PrimeNGConfig } from 'primeng/api';
 import { TranslationService } from './services/translation.service';
 import { filter, map } from 'rxjs';
 import { keys } from './configs/localstorage-key';
+import { HeaderComponent } from './components/layout/header/header.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, RatingModule, FormsModule, TranslateModule],
+  imports: [CommonModule, RouterOutlet, RatingModule, FormsModule, TranslateModule, HeaderComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
