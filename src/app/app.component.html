@@ -24,5 +24,8 @@
   </div>
 </nav>
 <h1>Hello</h1>
+
+-------------
+<h3>Prime ng</h3>
 <i class=" pi pi-arrow-right"></i>
-<p-rating [(ngModel)]="value" [cancel]="false"></p-rating>
+<p-rating *ngIf="value" [(ngModel)]="value" [cancel]="false"></p-rating>

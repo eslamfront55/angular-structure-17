@@ -18,7 +18,7 @@ export class AppComponent {
     private meta: Meta
   ) { }
   ngOnInit(): void {
-    this.meta.updateTag({ name: 'title', content: 'App start structure' })
+    this.meta.updateTag({ name: 'title', content: 'App start' })
     this.meta.updateTag({ name: 'description', content: 'App description' })
   }
 }
