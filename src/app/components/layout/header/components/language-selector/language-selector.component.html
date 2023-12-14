@@ -2,7 +2,7 @@
   <div class="dropdown">
     <button class="dropdown-toggle lang-flag btn p-0 d-flex align-items-center gap-1" type="button"
       [ngClass]="page!='stores'&&page!='events'&&page!='restaurant-details'&&page!='stories'&&page!='searchResult'?'text-white-color':'text-dark-color dark-toggle'"
-      id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+      data-bs-toggle="dropdown" aria-expanded="false">
       @switch(currentLanguage){
       @case ('ar') {
       <img class="flag" src="assets/images/flag/sa.svg" alt="saudi">
@@ -51,7 +51,7 @@
   <div class="dropdown">
     <button class="dropdown-toggle languages rounded-pill btn d-flex align-items-center gap-1"
       [ngClass]="shouldApplyDarkToggle() ? 'text-white-color' : 'text-dark-color dark-toggle'" type="button"
-      id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+      data-bs-toggle="dropdown" aria-expanded="false">
       <i class="pi pi-language fs-4"></i>
       <span class="">
         {{currentLanguage=='ar'?'عربي':currentLanguage=='ru'?'Рой':currentLanguage=='zh'?'尼亞尼':'EN'}} </span>

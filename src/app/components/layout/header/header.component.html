@@ -24,7 +24,7 @@
         <li class="nav-item dropdown mega-dropdown d-lg-flex d-none"
           (clickOutside)="collapse == true ? (collapse = false) : ''">
           <a class="nav-link dropdown-toggle text-white-color" id="megaDropdownMenu" aria-haspopup="true"
-            routerLinkActive="active2" [attr.aria-expanded]="!collapse" (click)="collapse = !collapse">
+            routerLinkActive="active2" aria-expanded="true" (click)="collapse = !collapse">
             {{'nav.place'|translate}}
           </a>
           <div class="dropdown-menu mega-menu-visit border-0 shadow p-0 position-relative"
