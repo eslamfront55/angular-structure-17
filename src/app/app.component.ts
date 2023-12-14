@@ -108,7 +108,6 @@ export class AppComponent {
   setLanguage(direction: string): void {
     this.renderer.setAttribute(this.document.documentElement, 'dir', direction);
     this.renderer.setAttribute(this.document.documentElement, 'lang', this.currentLanguage);
-    // Assuming you still want to set the class attribute to the current language
     this.renderer.setAttribute(this.document.documentElement, 'class', this.currentLanguage);
   }
 }
