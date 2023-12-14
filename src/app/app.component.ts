@@ -39,24 +39,24 @@ export class AppComponent {
     private meta: Meta
   ) {
     // Set up router events subscription
-    this.router.events.pipe(filter((event) => event instanceof NavigationEnd), map(() => {
-      let child = this.activatedRoute?.firstChild;
-      while (child) {
-        if (child?.firstChild) {
-          child = child.firstChild;
-        } else if (child?.snapshot?.data) {
-          return child.snapshot.data;
-        } else {
-          return null;
-        }
-      }
-      return null;
-    })
-    ).subscribe((data: any) => {
-      if (data) {
-        // this.publicService.pushUrlData.next(data);
-      }
-    });
+    // this.router.events.pipe(filter((event) => event instanceof NavigationEnd), map(() => {
+    //   let child = this.activatedRoute?.firstChild;
+    //   while (child) {
+    //     if (child?.firstChild) {
+    //       child = child.firstChild;
+    //     } else if (child?.snapshot?.data) {
+    //       return child.snapshot.data;
+    //     } else {
+    //       return null;
+    //     }
+    //   }
+    //   return null;
+    // })
+    // ).subscribe((data: any) => {
+    //   if (data) {
+    //     // this.publicService.pushUrlData.next(data);
+    //   }
+    // });
     // Set up translations
 
     // Client only code.
