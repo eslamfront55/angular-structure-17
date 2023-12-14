@@ -172,3 +172,27 @@
   border-radius: 5px;
   color: var(--bg-main-color);
 }
+
+@media (max-width: 991px) {
+  .navbar-collapse {
+    background-color: #f9ddff;
+    color: #111 !important;
+    border-radius: 0 0 10px 10px;
+    padding: 10px 18px;
+    background-image: url(../../../../assets/images/header-bg.svg);
+    background-position: right bottom;
+    background-repeat: no-repeat;
+
+    .nav-link {
+      color: #111 !important;
+      text-align: center;
+      margin: auto;
+
+      &.active {
+        background-color: var(--bg-white-color) !important;
+        border-radius: 6px !important;
+        padding: 10px 25px;
+      }
+    }
+  }
+}

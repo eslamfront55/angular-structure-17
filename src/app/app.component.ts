@@ -1,19 +1,20 @@
-import { Component, Inject, PLATFORM_ID, Renderer2 } from '@angular/core';
 import { CommonModule, DOCUMENT, isPlatformBrowser, isPlatformServer } from '@angular/common';
 import { ActivatedRoute, NavigationEnd, Router, RouterOutlet } from '@angular/router';
+import { HeaderComponent } from './components/layout/header/header.component';
+import { FooterComponent } from './components/layout/footer/footer.component';
+import { Component, Inject, PLATFORM_ID, Renderer2 } from '@angular/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslationService } from './services/translation.service';
+import { keys } from './configs/localstorage-key';
 import { Meta } from '@angular/platform-browser';
 import { RatingModule } from 'primeng/rating';
 import { FormsModule } from '@angular/forms';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { PrimeNGConfig } from 'primeng/api';
-import { TranslationService } from './services/translation.service';
 import { filter, map } from 'rxjs';
-import { keys } from './configs/localstorage-key';
-import { HeaderComponent } from './components/layout/header/header.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, RatingModule, FormsModule, TranslateModule, HeaderComponent],
+  imports: [CommonModule, RouterOutlet, RatingModule, FormsModule, TranslateModule, HeaderComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
