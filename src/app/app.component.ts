@@ -1,12 +1,10 @@
 import { Component, Inject, PLATFORM_ID, Renderer2 } from '@angular/core';
 import { CommonModule, DOCUMENT, isPlatformBrowser, isPlatformServer } from '@angular/common';
 import { ActivatedRoute, NavigationEnd, Router, RouterOutlet } from '@angular/router';
-import { Meta, Title } from '@angular/platform-browser';
+import { Meta } from '@angular/platform-browser';
 import { RatingModule } from 'primeng/rating';
 import { FormsModule } from '@angular/forms';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { HttpClient } from '@angular/common/http';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { PrimeNGConfig } from 'primeng/api';
 import { TranslationService } from './services/translation.service';
 import { filter, map } from 'rxjs';
@@ -36,7 +34,6 @@ export class AppComponent {
     private activatedRoute: ActivatedRoute,
     private primengConfig: PrimeNGConfig,
     private renderer: Renderer2,
-    private titleService: Title,
     private router: Router,
     private meta: Meta
   ) {

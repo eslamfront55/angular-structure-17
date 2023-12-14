@@ -6,11 +6,6 @@ import { provideClientHydration } from '@angular/platform-browser';
 import { HttpClient, HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { createTranslateLoader } from './translate-loader';
-// import { CustomTranslateLoader } from './translate-loader';
-
-// export function createTranslateLoader(http: HttpClient, router: Router) {
-//   return new CustomTranslateLoader(http, router);
-// }
 
 export const appConfig: ApplicationConfig = {
   providers: [provideRouter(routes), provideClientHydration(),
