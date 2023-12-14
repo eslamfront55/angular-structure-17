@@ -110,8 +110,5 @@ export class AppComponent {
     // Assuming you still want to set the class attribute to the current language
     this.renderer.setAttribute(this.document.documentElement, 'class', this.currentLanguage);
   }
-  changeLang(lang: any): void {
-    this.translationService?.changeLang(lang);
-  }
 }
 
