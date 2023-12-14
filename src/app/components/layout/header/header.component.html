@@ -3,8 +3,8 @@
   [ngClass]="{'dark-nav':shouldDisplayDarkLogo()}">
   <div class="container px-0">
     <a class="navbar-brand mx-3">
-      <img [src]="shouldDisplayDarkLogo() ? 'assets/images/logo/dark-logo.svg' : 'assets/images/logo/logo.svg'"
-        alt="logo" class="logo">
+      <img [ngSrc]="shouldDisplayDarkLogo() ? 'assets/images/logo/dark-logo.svg' : 'assets/images/logo/logo.svg'"
+        alt="logo" class="logo" width="5.2" height="3" priority>
     </a>
     <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
       data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -23,12 +23,10 @@
         </li>
         <li class="nav-item dropdown mega-dropdown d-lg-flex d-none"
           (clickOutside)="collapse == true ? (collapse = false) : ''">
-          <a class="nav-link dropdown-toggle text-white-color" id="megaDropdownMenu" aria-haspopup="true"
-            aria-label="place" [attr.aria-expanded]="!collapse" (click)="collapse = !collapse">
+          <a class="nav-link dropdown-toggle text-white-color" id="megaDropdownMenu" (click)="collapse = !collapse">
             {{'nav.place'|translate}}
           </a>
-          <div class="dropdown-menu mega-menu-visit border-0 shadow p-0 position-relative"
-            aria-labelledby="megaDropdownMenu" [class.show]="collapse">
+          <div class="dropdown-menu mega-menu-visit border-0 shadow p-0 position-relative" [class.show]="collapse">
             dropdown
             <!-- <app-invite-to-visit (openPlaceHandler)="openPlace()"></app-invite-to-visit> -->
           </div>
@@ -98,7 +96,7 @@
       <div class="sidebar-menu position-relative text-white-color d-flex flex-column justify-content-center">
         <div class="d-flex justify-content-start logo-img mb-3 pointer position-relative" (click)="displayMenu = false"
           [routerLink]="['/home']">
-          <img src="assets/images/logo/logo.svg" alt="logo" class="logo h-100">
+          <img ngSrc="assets/images/logo/logo.svg" alt="logo" class="logo h-100" width="5.2" height="3" priority>
         </div>
         <div class="d-flex justify-content-between gap-2">
           @if(currentLoginInformation){
@@ -287,12 +285,12 @@
     <li class="nav-item d-xl-none d-flex position-relative">
       <a class="nav-link camel-svg d-flex justify-content-center align-items-center rounded-circle position-relative pointer"
         (click)="startTrip()">
-        <img src="assets/images/camel2.gif" width="55px" height="55px" alt="">
+        <img ngSrc="assets/images/camel2.gif" width="55px" height="55px" alt="" width="5.2" height="3" priority>
       </a>
     </li>
     <li class="nav-item">
       <a class="nav-link" (click)="collapsedMenu = false; explore()">
-        <img src="assets/images/icons/saudi.svg" alt="saudi" class="saudi">
+        <img ngSrc="assets/images/icons/saudi.svg" alt="saudi" class="saudi" width="5.2" height="3" priority>
       </a>
     </li>
     <li class="nav-item">
