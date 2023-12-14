@@ -27,6 +27,5 @@ export const appConfig: ApplicationConfig = {
           defaultLanguage: 'en'
         })
     )
-
   ]
 };
