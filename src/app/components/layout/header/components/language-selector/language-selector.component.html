@@ -24,7 +24,7 @@
     <ul class="dropdown-menu rounded-25 border-0 shadow p-3" aria-labelledby="dropdownMenuButton1">
       <li class="nav-item " (click)="translationService.changeLang('ar')">
         <a class="nav-link px-2 p-1 d-flex align-items-center gap-2">
-          <img class="flag" src="assets/images/flag/sa.svg" alt="sa">
+          <img class="flag" src="assets/images/flag/sa.svg" alt="ar">
           <span>العربية</span>
         </a>
       </li>
@@ -35,12 +35,12 @@
         </a></li>
       <li class="nav-item " (click)="translationService.changeLang('ru')"><a
           class="nav-link px-2 p-1 d-flex align-items-center gap-2">
-          <img class="flag shadow-sm" src="assets/images/flag/ru.svg" alt="en">
+          <img class="flag shadow-sm" src="assets/images/flag/ru.svg" alt="ru">
           <span>Рой</span>
         </a></li>
       <li class="nav-item " (click)="translationService.changeLang('zh')"><a
           class="nav-link px-2 p-1 d-flex align-items-center gap-2">
-          <img class="flag shadow-sm" src="assets/images/flag/cn.svg" alt="en">
+          <img class="flag shadow-sm" src="assets/images/flag/cn.svg" alt="zh">
           <span>尼亞尼</span>
         </a></li>
     </ul>
@@ -51,12 +51,12 @@
   <div class="dropdown">
     <button class="dropdown-toggle languages rounded-pill btn d-flex align-items-center gap-1"
       [ngClass]="shouldApplyDarkToggle() ? 'text-white-color' : 'text-dark-color dark-toggle'" type="button"
-      id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+      id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
       <i class="pi pi-language fs-4"></i>
       <span class="">
         {{currentLanguage=='ar'?'عربي':currentLanguage=='ru'?'Рой':currentLanguage=='zh'?'尼亞尼':'EN'}} </span>
     </button>
-    <ul class="dropdown-menu dropdown-menu2 rounded-25 border-0 shadow p-3" aria-labelledby="dropdownMenuButton1">
+    <ul class="dropdown-menu dropdown-menu2 rounded-25 border-0 shadow p-3" aria-labelledby="dropdownMenuButton2">
       <li class="nav-item " (click)="translationService.changeLang('ar')">
         <a class="nav-link px-2 p-1 d-flex align-items-center gap-2">
           <img class="flag" src="assets/images/flag/sa.svg" alt="sa">
@@ -70,12 +70,12 @@
         </a></li>
       <li class="nav-item " (click)="translationService.changeLang('ru')"><a
           class="nav-link px-2 p-1 d-flex align-items-center gap-2">
-          <img class="flag shadow-sm" src="assets/images/flag/ru.svg" alt="en">
+          <img class="flag shadow-sm" src="assets/images/flag/ru.svg" alt="ru">
           <span>Рой</span>
         </a></li>
       <li class="nav-item " (click)="translationService.changeLang('zh')"><a
           class="nav-link px-2 p-1 d-flex align-items-center gap-2">
-          <img class="flag shadow-sm" src="assets/images/flag/cn.svg" alt="en">
+          <img class="flag shadow-sm" src="assets/images/flag/cn.svg" alt="zh">
           <span>尼亞尼</span>
         </a></li>
     </ul>
