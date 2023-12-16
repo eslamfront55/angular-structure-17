@@ -1,7 +1,7 @@
-import { TranslationService } from './../../../../../services/translation.service';
+import { TranslationService } from '../../../services/generic/translation.service';
 import { CommonModule, isPlatformBrowser, NgOptimizedImage } from '@angular/common';
 import { Component, Inject, PLATFORM_ID } from '@angular/core';
-import { keys } from '../../../../../configs/localstorage-key';
+import { keys } from '../../../configs/localstorage-key';
 
 @Component({
   standalone: true,

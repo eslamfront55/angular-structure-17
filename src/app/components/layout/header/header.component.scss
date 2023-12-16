@@ -15,7 +15,7 @@
       font-weight: 400;
       font-size: 20px;
       text-transform: capitalize;
-      &.active2 {
+      &-link {
         color: var(--text-main-color) !important;
         font-weight: bold !important;
       }
@@ -72,17 +72,17 @@
 .logo-img {
   top: -10px;
 }
-.navbar2 {
+.second-navbar {
   box-shadow: 0 0.5rem 1rem rgb(224 224 224 / 15%);
 }
-.navbar3 {
+.third-navbar {
   border-radius: 15px 15px 0 0;
   padding: 13px 0;
   z-index: 3333;
   .nav-link {
     color: #9fa3af !important;
   }
-  .active2 {
+  .active-link {
     color: var(--text-main-color) !important;
   }
   .camel-svg {
@@ -96,7 +96,7 @@
     width: 30px !important;
   }
 }
-.active2 {
+.active-link {
   color: var(--text-main-color) !important;
 }
 

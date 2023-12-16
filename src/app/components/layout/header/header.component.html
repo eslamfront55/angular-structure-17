@@ -3,7 +3,8 @@
   [ngClass]="{'dark-nav':shouldDisplayDarkLogo()}">
   <div class="container px-0">
     <a class="navbar-brand mx-3">
-      <img [ngSrc]="shouldDisplayDarkLogo() ? 'assets/images/logo/dark-logo.svg' : 'assets/images/logo/logo.svg'"
+      <img
+        [ngSrc]="shouldDisplayDarkLogo() ? 'assets/images/logos/site/dark-logo.svg' : 'assets/images/logos/site/logo.svg'"
         alt="logo" class="logo" width="82" height="48" priority>
     </a>
     <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
@@ -18,7 +19,7 @@
     <div class="collapse navbar-collapse m-auto" id="navbarSupportedContent" [class.show]="collapsedMenu">
       <ul class="navbar-nav m-auto mb-2 mb-lg-0 gap-4">
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/home']" routerLinkActive="active2"
+          <a class="nav-link" [routerLink]="['/home']" routerLinkActive="active-link"
             (click)="collapsedMenu = false">{{'nav.home'|translate}}</a>
         </li>
         <li class="nav-item dropdown mega-dropdown d-lg-flex d-none"
@@ -33,23 +34,23 @@
         </li>
         <li class="nav-item d-lg-none d-flex">
           <a class="nav-link" (click)="collapsedMenu = false" [routerLink]="['/places']"
-            routerLinkActive="active2">{{'nav.place'|translate}}</a>
+            routerLinkActive="active-link">{{'nav.place'|translate}}</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" (click)="collapsedMenu = false" [routerLink]="['/stores']"
-            routerLinkActive="active2">{{'nav.stores'|translate}}</a>
+            routerLinkActive="active-link">{{'nav.stores'|translate}}</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" (click)="collapsedMenu = false" [routerLink]="['/restaurants']"
-            routerLinkActive="active2">{{'nav.zad'|translate}}</a>
+            routerLinkActive="active-link">{{'nav.zad'|translate}}</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" (click)="collapsedMenu = false" [routerLink]="['/stories']"
-            routerLinkActive="active2">{{'nav.swalefs'|translate}}</a>
+            routerLinkActive="active-link">{{'nav.swalefs'|translate}}</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" (click)="collapsedMenu = false" [routerLink]="['/events']"
-            routerLinkActive="active2">{{'nav.events'|translate}}</a>
+            routerLinkActive="active-link">{{'nav.events'|translate}}</a>
         </li>
       </ul>
       <div class="d-flex align-items-center gap-4 py-lg-0 py-3">
@@ -74,7 +75,7 @@
   </div>
 </nav>
 
-<nav class="d-xl-none d-block navbar2 position-absolute w-100 "
+<nav class="d-xl-none d-block second-navbar position-absolute w-100 "
   [ngClass]="page!='home'&&page!='places'&&page!='trips'&&page!='coming-soon'?'headerBg':''"
   [class.dark-nav]="page=='place-details'||page=='stores'||page=='store-details'||page=='events'||page=='restaurant-details'||page=='stories'||page=='searchResult'"
   [ngClass]="page=='place-details'||page=='store-details'?'d-md-block d-none bg-md-header':''">
@@ -96,7 +97,7 @@
       <div class="sidebar-menu position-relative text-white-color d-flex flex-column justify-content-center">
         <div class="d-flex justify-content-start logo-img mb-3 pointer position-relative" (click)="displayMenu = false"
           [routerLink]="['/home']">
-          <img ngSrc="assets/images/logo/logo.svg" alt="logo" class="logo h-100" width="82" height="48" priority>
+          <img ngSrc="assets/images/logos/site/logo.svg" alt="logo" class="logo h-100" width="82" height="48" priority>
         </div>
         <div class="d-flex justify-content-between gap-2">
           @if(currentLoginInformation){
@@ -253,10 +254,10 @@
   </p-sidebar>
 </div>
 
-<nav class="d-xl-none d-flex position-fixed w-100 bottom-0 bg-white navbar3 shadow-lg">
+<nav class="d-xl-none d-flex position-fixed w-100 bottom-0 bg-white third-navbar shadow-lg">
   <ul class="gap-2 d-flex justify-content-evenly w-100 p-0">
     <li class=" nav-item">
-      <a class="nav-link" [routerLink]="['/home']" routerLinkActive="active2" (click)="collapsedMenu = false">
+      <a class="nav-link" [routerLink]="['/home']" routerLinkActive="active-link" (click)="collapsedMenu = false">
         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="35" height="35"
           viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round"
           stroke-linejoin="round">
@@ -268,7 +269,7 @@
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" [routerLink]="['/places']" routerLinkActive="active2">
+      <a class="nav-link" [routerLink]="['/places']" routerLinkActive="active-link">
         <svg xmlns=" http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-current-location" width="35"
           height="35" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill=" none" stroke-linecap="round"
           stroke-linejoin="round">

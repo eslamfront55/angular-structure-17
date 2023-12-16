@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, HostListener, Inject, Input, PLATFORM_ID } from '@angular/core';
-import { LanguageSelectorComponent } from './components/language-selector/language-selector.component';
+import { LanguageSelectorComponent } from '../../generic/language-selector/language-selector.component';
 import { CommonModule, NgOptimizedImage, isPlatformBrowser } from '@angular/common';
 import { DialogService, DynamicDialogModule } from 'primeng/dynamicdialog';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';

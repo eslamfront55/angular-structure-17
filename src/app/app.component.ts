@@ -4,7 +4,7 @@ import { HeaderComponent } from './components/layout/header/header.component';
 import { FooterComponent } from './components/layout/footer/footer.component';
 import { Component, Inject, PLATFORM_ID, Renderer2 } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { TranslationService } from './services/translation.service';
+import { TranslationService } from './services/generic/translation.service';
 import { keys } from './configs/localstorage-key';
 import { Meta } from '@angular/platform-browser';
 import { RatingModule } from 'primeng/rating';

@@ -2,7 +2,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { Subject } from 'rxjs';
 import { isPlatformBrowser } from '@angular/common';
-import { keys } from '../configs/localstorage-key';
+import { keys } from '../../configs/localstorage-key';
 
 @Injectable({
   providedIn: 'root'
