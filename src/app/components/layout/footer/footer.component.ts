@@ -90,10 +90,14 @@ export class FooterComponent implements OnInit {
   ngOnInit(): void {
     this.siteName = 'هودج';
     if (isPlatformBrowser(this.platformId)) {
-      if (JSON.parse(window?.localStorage?.getItem(keys?.userLoginData) || '{}')?.user) {
-        this.currentLoginInformation = JSON.parse(window?.localStorage?.getItem(keys?.userLoginData) || '{}')?.user;
-      }
+      this.updateMetaTags();
+      this.cdr.detectChanges();
     }
+    if (isPlatformServer(this.platformId)) {
+      this.updateMetaTags();
+      this.cdr.detectChanges();
+    }
+
     this.initPageData();
   }
   private initPageData(): void {
@@ -115,15 +119,6 @@ export class FooterComponent implements OnInit {
           this.placeDetails = res?.data;
           this.cdr.detectChanges();
           console.log(this.placeDetails);
-
-          if (isPlatformBrowser(this.platformId)) {
-            this.updateMetaTags();
-            this.cdr.detectChanges();
-          }
-          if (isPlatformServer(this.platformId)) {
-            this.updateMetaTags();
-            this.cdr.detectChanges();
-          }
           console.log(this.placeDetails);
 
 
@@ -144,15 +139,15 @@ export class FooterComponent implements OnInit {
     );
   }
   private updateMetaTags(): void {
-    this.metadataService.updateTitle(`${this.siteName} | ${this.placeDetails.slug}`);
+    this.metadataService.updateTitle(`title`);
     this.metadataService.updateMetaTagsName([
-      { name: 'title', content: `${this.siteName} | ${this.placeDetails.slug}` },
-      { name: 'description', content: this.placeDetails.address },
+      { name: 'title', content: `title` },
+      { name: 'description', content: 'conttt' },
     ]);
     this.metadataService.updateMetaTagsProperty([
       { property: 'og:url', content: `/places/details/${this.placeDetails.slug}` },
-      { property: 'og:title', content: `${this.siteName} | ${this.placeDetails.slug}` },
-      { property: 'og:description', content: this.placeDetails.address },
+      { property: 'og:title', content: `title` },
+      { property: 'og:description', content: 'conttt' },
       { property: 'og:image', content: this.imageBaseUrl + '/' + this.placeDetails.image },
     ]);
   }
