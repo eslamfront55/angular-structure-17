@@ -11,8 +11,7 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 
 import { InputTextModule } from 'primeng/inputtext';
 import { Meta, Title } from '@angular/platform-browser';
-import { CarouselModule } from 'primeng/carousel';
-import { GalleriaModule } from 'primeng/galleria';
+
 import { TabViewModule } from 'primeng/tabview';
 import { SidebarModule } from 'primeng/sidebar';
 import { RatingModule } from 'primeng/rating';
@@ -25,7 +24,7 @@ import { keys } from '../../../configs/localstorage-key';
   selector: 'app-footer',
   standalone: true,
   imports: [
-    CommonModule, FormsModule, ReactiveFormsModule, RouterModule, GalleriaModule, TabViewModule, CarouselModule, SidebarModule, RatingModule,
+    CommonModule, FormsModule, ReactiveFormsModule, RouterModule, TabViewModule, SidebarModule, RatingModule,
     InputTextModule, TranslateModule
   ],
   templateUrl: './footer.component.html',
@@ -145,15 +144,15 @@ export class FooterComponent implements OnInit {
     );
   }
   private updateMetaTags(): void {
-    this.metadataService.updateTitle(`${this.siteName} | ${this.placeDetails.title}`);
+    this.metadataService.updateTitle(`${this.siteName} | ${this.placeDetails.slug}`);
     this.metadataService.updateMetaTagsName([
-      { name: 'title', content: `${this.siteName} | ${this.placeDetails.title}` },
-      { name: 'description', content: this.placeDetails.description },
+      { name: 'title', content: `${this.siteName} | ${this.placeDetails.slug}` },
+      { name: 'description', content: this.placeDetails.address },
     ]);
     this.metadataService.updateMetaTagsProperty([
       { property: 'og:url', content: `/places/details/${this.placeDetails.slug}` },
-      { property: 'og:title', content: `${this.siteName} | ${this.placeDetails.title}` },
-      { property: 'og:description', content: this.placeDetails.description },
+      { property: 'og:title', content: `${this.siteName} | ${this.placeDetails.slug}` },
+      { property: 'og:description', content: this.placeDetails.address },
       { property: 'og:image', content: this.imageBaseUrl + '/' + this.placeDetails.image },
     ]);
   }
