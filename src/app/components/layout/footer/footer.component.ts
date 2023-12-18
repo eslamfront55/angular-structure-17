@@ -20,7 +20,6 @@ import { Subscription } from 'rxjs';
 import { MetadataService } from '../../../services/generic/SEO/metadata.service';
 import { keys } from '../../../configs/localstorage-key';
 
-declare var google: any;
 
 @Component({
   selector: 'app-footer',
@@ -111,7 +110,6 @@ export class FooterComponent implements OnInit {
   }
 
   getPLaceDataById(id: any, preventLoading?: boolean): void {
-    preventLoading ? '' : this.isLoadingPlaceDetails = true;
     this.metadataService?.getPLaceById(id)?.subscribe(
       (res: any) => {
         if (res?.code == 200) {
@@ -134,36 +132,12 @@ export class FooterComponent implements OnInit {
           } else if (this.placeDetails?.city?.name) {
             this.placeDetails['address_name'] = this.placeDetails?.city?.name;
           }
-          this.markerPositions = [
-            {
-              lat: this.placeDetails?.lat,
-              lng: this.placeDetails?.long,
-              place_icon: 'assets/images/icons/location2.svg',
-              icon: {
-                url: this.placeDetails?.place_icon ? this.placeDetails?.place_icon : 'assets/images/icons/location2.svg',
-                size: this.placeDetails?.place_icon ? new google.maps.Size(30, 30) : new google.maps.Size(50, 50),
-              },
-              content: {
-                id: this.placeDetails?.id,
-                title: this.placeDetails.title,
-                location_name: this.placeDetails.address_name,
-                address: this.placeDetails.address,
-                rate: this.placeDetails.rate,
-                reviews: this.placeDetails?.review,
-                icon: this.placeDetails.place_icon,
-                thumbil_image: this.placeDetails.image ? this.imageBaseUrl + '/' + this.placeDetails?.image : 'assets/images/icons/location2.svg'
-              }
-            }
-          ];
           this.cdr.detectChanges();
-          this.isLoadingPlaceDetails = false;
         } else {
 
         }
-        this.isLoadingPlaceDetails = false;
       },
       (err: any) => {
-        this.isLoadingPlaceDetails = false;
       }
     );
   }
