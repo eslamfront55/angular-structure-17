@@ -115,6 +115,8 @@ export class FooterComponent implements OnInit {
         if (res?.code == 200) {
           this.placeDetails = res?.data;
           this.cdr.detectChanges();
+          console.log(this.placeDetails);
+
           if (isPlatformBrowser(this.platformId)) {
             this.updateMetaTags();
             this.cdr.detectChanges();
@@ -123,7 +125,8 @@ export class FooterComponent implements OnInit {
             this.updateMetaTags();
             this.cdr.detectChanges();
           }
-          this.placeDetails['rate'] = Math.ceil(this.placeDetails?.rate);
+          console.log(this.placeDetails);
+
 
           if (this.placeDetails?.region?.name && this.placeDetails?.city?.name) {
             this.placeDetails['address_name'] = this.placeDetails?.region?.name + ', ' + this.placeDetails?.city?.name;
