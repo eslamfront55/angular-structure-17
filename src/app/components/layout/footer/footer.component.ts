@@ -113,16 +113,13 @@ export class FooterComponent implements OnInit {
       (res: any) => {
         if (res?.status) {
           this.placeDetails = res?.data?.articles;
-          this.cdr.detectChanges();
           console.log(this.placeDetails);
 
           if (isPlatformBrowser(this.platformId)) {
             this.updateMetaTags();
-            this.cdr.detectChanges();
           }
           if (isPlatformServer(this.platformId)) {
             this.updateMetaTags();
-            this.cdr.detectChanges();
           }
           console.log(this.placeDetails);
 
@@ -143,16 +140,16 @@ export class FooterComponent implements OnInit {
     );
   }
   private updateMetaTags(): void {
-    this.metadataService.updateTitle(`${this.siteName} | ${this.placeDetails.title}`);
+    this.metadataService.updateTitle(`${this.siteName} | ${this.placeDetails[0].title}`);
     this.metadataService.updateMetaTagsName([
-      { name: 'title', content: `${this.siteName} | ${this.placeDetails.title}` },
-      { name: 'description', content: this.placeDetails.description },
+      { name: 'title', content: `${this.siteName} | ${this.placeDetails[0].title}` },
+      { name: 'description', content: this.placeDetails[0].description },
     ]);
     this.metadataService.updateMetaTagsProperty([
-      { property: 'og:url', content: `/places/details/${this.placeDetails.title}` },
-      { property: 'og:title', content: `${this.siteName} | ${this.placeDetails.title}` },
-      { property: 'og:description', content: this.placeDetails.description },
-      { property: 'og:image', content: this.imageBaseUrl + '/' + this.placeDetails.image },
+      { property: 'og:url', content: `/places/details/${this.placeDetails[0].title}` },
+      { property: 'og:title', content: `${this.siteName} | ${this.placeDetails[0].title}` },
+      { property: 'og:description', content: this.placeDetails[0].description },
+      { property: 'og:image', content: this.imageBaseUrl + '/' + this.placeDetails[0].image },
     ]);
   }
 
