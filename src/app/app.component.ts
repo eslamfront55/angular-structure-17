@@ -103,8 +103,8 @@ export class AppComponent {
     }
   }
   ngOnInit(): void {
-    this.meta.updateTag({ name: 'title', content: 'App start' })
-    this.meta.updateTag({ name: 'description', content: 'App description' })
+    // this.meta.updateTag({ name: 'title', content: 'App start' })
+    // this.meta.updateTag({ name: 'description', content: 'App description' })
   }
   setLanguage(direction: string): void {
     this.renderer.setAttribute(this.document.documentElement, 'dir', direction);
