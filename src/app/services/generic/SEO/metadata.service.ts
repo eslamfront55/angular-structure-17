@@ -114,6 +114,6 @@ export class MetadataService {
   }
 
   getPLaceById(id: any): Observable<any> {
-    return this.http.get(`https://dashboard.hawdaj.net/api/places/al-faw-village`);
+    return this.http.get(`https://api.talbinah.net/site/blogs?page=1&per_page=12`);
   }
 }

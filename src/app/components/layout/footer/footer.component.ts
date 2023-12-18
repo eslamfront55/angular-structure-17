@@ -90,14 +90,10 @@ export class FooterComponent implements OnInit {
   ngOnInit(): void {
     this.siteName = 'هودج';
     if (isPlatformBrowser(this.platformId)) {
-      this.updateMetaTags();
-      this.cdr.detectChanges();
+      if (JSON.parse(window?.localStorage?.getItem(keys?.userLoginData) || '{}')?.user) {
+        this.currentLoginInformation = JSON.parse(window?.localStorage?.getItem(keys?.userLoginData) || '{}')?.user;
+      }
     }
-    if (isPlatformServer(this.platformId)) {
-      this.updateMetaTags();
-      this.cdr.detectChanges();
-    }
-
     this.initPageData();
   }
   private initPageData(): void {
@@ -115,10 +111,19 @@ export class FooterComponent implements OnInit {
   getPLaceDataById(id: any, preventLoading?: boolean): void {
     this.metadataService?.getPLaceById(id)?.subscribe(
       (res: any) => {
-        if (res?.code == 200) {
-          this.placeDetails = res?.data;
+        if (res?.status) {
+          this.placeDetails = res?.data?.articles;
           this.cdr.detectChanges();
           console.log(this.placeDetails);
+
+          if (isPlatformBrowser(this.platformId)) {
+            this.updateMetaTags();
+            this.cdr.detectChanges();
+          }
+          if (isPlatformServer(this.platformId)) {
+            this.updateMetaTags();
+            this.cdr.detectChanges();
+          }
           console.log(this.placeDetails);
 
 
@@ -131,7 +136,6 @@ export class FooterComponent implements OnInit {
           }
           this.cdr.detectChanges();
         } else {
-
         }
       },
       (err: any) => {
@@ -139,15 +143,15 @@ export class FooterComponent implements OnInit {
     );
   }
   private updateMetaTags(): void {
-    this.metadataService.updateTitle(`title`);
+    this.metadataService.updateTitle(`${this.siteName} | ${this.placeDetails.title}`);
     this.metadataService.updateMetaTagsName([
-      { name: 'title', content: `title` },
-      { name: 'description', content: 'conttt' },
+      { name: 'title', content: `${this.siteName} | ${this.placeDetails.title}` },
+      { name: 'description', content: this.placeDetails.description },
     ]);
     this.metadataService.updateMetaTagsProperty([
-      { property: 'og:url', content: `/places/details/${this.placeDetails.slug}` },
-      { property: 'og:title', content: `title` },
-      { property: 'og:description', content: 'conttt' },
+      { property: 'og:url', content: `/places/details/${this.placeDetails.title}` },
+      { property: 'og:title', content: `${this.siteName} | ${this.placeDetails.title}` },
+      { property: 'og:description', content: this.placeDetails.description },
       { property: 'og:image', content: this.imageBaseUrl + '/' + this.placeDetails.image },
     ]);
   }
