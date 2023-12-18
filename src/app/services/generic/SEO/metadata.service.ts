@@ -114,6 +114,6 @@ export class MetadataService {
   }
 
   getPLaceById(id: any): Observable<any> {
-    return this.http.get(`https://api.talbinah.net/site/blogs?page=1&per_page=12`);
+    return this.http.get(`http://api.talbinah.net/site/blogs?page=1&per_page=12`);
   }
 }
